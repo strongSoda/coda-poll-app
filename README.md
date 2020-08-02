@@ -2,6 +2,13 @@
 
 Demo Admin Code: a001
 
+## Feauters
+
+- google login
+- one time Vote
+- admin add/edit/delete candidates
+- lists candidates
+
 ## Details
 
 - Frontend = React

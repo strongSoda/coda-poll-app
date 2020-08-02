@@ -43,8 +43,7 @@ const AddCandidate = () => {
                 .required('Required')
         }),
         onSubmit: values => {
-            const expert_in = { "algorithms": values.algorithms, "python": values.python }
-            const url = 'https://coda-poll-app.herokuapp.com/admin/candidates/add?name=' + values.name + '&admin_code=' + values.adminId + '&candidate_id=' + values.id + '&expertise=' + values.expertise + '&number_challenges_solved=' + values.solved + '&candidate_passcode=' + values.passcode + '&expert_in=' + expert_in;
+            const url = 'https://coda-poll-app.herokuapp.com/admin/candidates/add?name=' + values.name + '&admin_code=' + values.adminId + '&candidate_id=' + values.id + '&expertise=' + values.expertise + '&number_challenges_solved=' + values.solved + '&candidate_passcode=' + values.passcode + '&expert_in=%7Balgorithms%3A' + values.algorithms + '%2Cpython%3A' + values.python + '%7D';
             fetch(url)
                 .then(response => response.json())
                 .then(data => onPost(data))

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Vote from "./Vote";
-import { Container, Row, Col, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Container, Row, Col, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 
 const Content = (props) => {
 
