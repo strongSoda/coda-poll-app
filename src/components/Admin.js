@@ -6,14 +6,14 @@ import DeleteCandidate from './DeleteCandidate'
 
 const Admin = () => (
     <Container className="main">
-        <Tabs defaultActiveKey="add" id="uncontrolled-tab-example">
-            <Tab eventKey="add" title="Add">
+        <Tabs defaultActiveKey="add" id="uncontrolled-tab-example" className='pt-5'>
+            <Tab eventKey="add" title="Add" href="#add">
                 <AddCandidate />
             </Tab>
-            <Tab eventKey="edit" title="Edit">
+            <Tab eventKey="edit" title="Edit" href="#edit">
                 <EditCandidate />
             </Tab>
-            <Tab eventKey="delete" title="Delete">
+            <Tab eventKey="delete" title="Delete" href="#delete">
                 <DeleteCandidate />
             </Tab>
         </Tabs>

@@ -29,7 +29,7 @@ const Content = (props) => {
     return (
         <Container>
             <Row className="p-5">
-                <Col sm={8}>
+                <Col sm={7}>
                     <h2>Candidates</h2>
                     {candidatesLoading ? 'loading...' : (
                         <>
@@ -49,7 +49,7 @@ const Content = (props) => {
                         </>
                     )}
                 </Col>
-                <Col sm={4}>
+                <Col sm={5}>
                     {candidate ? (
                         <div className="candidate">
                             <h2>{candidate.name}</h2>

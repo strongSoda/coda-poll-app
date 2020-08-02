@@ -1,0 +1,7 @@
+body {
+  text-transform: capitalize;
+  margin-bottom: 12em;
+}
+.test{
+  text-transform: lowercase;
+}

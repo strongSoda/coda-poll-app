@@ -13,13 +13,13 @@ function Main(props) {
         <Container className="main">
             <Avatar user={value} />
             <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
-                <Tab eventKey="home" title="Home">
+                <Tab eventKey="home" title="Home" href="#home">
                     <Content user={value} />
                 </Tab>
-                <Tab eventKey="admin" title="Admin">
+                <Tab eventKey="admin" title="Admin" href="#admin">
                     <Admin />
                 </Tab>
-                <Tab eventKey="candidate" title="Candidate">
+                <Tab eventKey="candidate" title="Candidate" href="#candidate">
                     <Candidate />
                 </Tab>
             </Tabs>

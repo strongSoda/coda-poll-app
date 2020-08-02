@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { Form, Button, Container } from 'react-bootstrap'
 
 const AddCandidate = () => {
     const onPost = (id) => {
@@ -25,6 +26,20 @@ const AddCandidate = () => {
         validationSchema: Yup.object({
             name: Yup.string()
                 .max(50, 'Must be 50 characters or less')
+                .required('Required'),
+            adminId: Yup.string()
+                .required('Required'),
+            id: Yup.string()
+                .required('Required'),
+            passcode: Yup.string()
+                .required('Required'),
+            expertise: Yup.string()
+                .required('Required'),
+            algorithms: Yup.string()
+                .required('Required'),
+            python: Yup.string()
+                .required('Required'),
+            solved: Yup.string()
                 .required('Required')
         }),
         onSubmit: values => {
@@ -39,124 +54,128 @@ const AddCandidate = () => {
 
 
     return (
-        <form onSubmit={formik.handleSubmit}>
-            {/* <Form.Control type="email" placeholder={props.email} readOnly /> */}
-            <div className='form_field'>
-                <label htmlFor="adminId">admin Id <small>(for testing use "a001" without quotes)</small></label>
-                <input
-                    autoFocus
-                    className='border_gray'
-                    id="adminId"
-                    name="adminId"
-                    type="text"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.adminId}
-                /><br />
-                <label htmlFor="name">name</label>
-                <input
-                    autoFocus
-                    className='border_gray'
-                    id="name"
-                    name="name"
-                    type="text"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.name}
-                />
-                {formik.touched.name && formik.errors.name ? (
-                    <span>{formik.errors.name}</span>
-
-                ) : null}
-                <br />
-                <label htmlFor="solved">challenges solved</label>
-                <input
-                    autoFocus
-                    className='border_gray'
-                    id="solved"
-                    name="solved"
-                    type="number"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.solved}
-                /><br />
-                <label htmlFor="id">ID</label> {formik.touched.id && formik.errors.id ? (
-                    <span>{formik.errors.id}</span>
-
-                ) : null}
-                <input
-                    className='border_gray'
-                    id="id"
-                    name="id"
-                    type="text"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.id}
-                /><br />
-
-                <label htmlFor="passcode">passcode</label> {formik.touched.passcode && formik.errors.passcode ? (
-                    <span>{formik.errors.passcode}</span>
-
-                ) : null}
-                <input
-                    className='border_gray'
-                    id="passcode"
-                    name="passcode"
-                    type="text"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.passcode} />
-                <br />
-                <label htmlFor="expertise">expertise</label>
-                <select
-                    name="expertise"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                >
-                    <option value="">--SELECT--</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <br />
-                <label htmlFor="algorithms">algorithms</label>
-                <select
-                    name="algorithms"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                >
-                    <option value="">--SELECT--</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <br />
-                <label htmlFor="python">python</label>
-
-                <select
-                    name="python"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                >
-                    <option value="">--SELECT--</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            {/* <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label='Agree to Terms & Condition' />
-        </Form.Group> */}
-            <div className='form_field'>
-                <input type="submit" value="Add" />
-            </div>
-        </form >
+        <Container className='pt-5'>
+            <Form onSubmit={formik.handleSubmit}>
+                <Form.Group>
+                    <Form.Label htmlFor="adminId">admin Id</Form.Label> {formik.touched.adminId && formik.errors.adminId ? (
+                        <small className='error'>{formik.errors.adminId}</small>
+                    ) : null}
+                    <Form.Control type="text" placeholder="a001"
+                        id="adminId"
+                        name="adminId"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.adminId}
+                    />
+                    <Form.Text className="text-muted test">
+                        for testing use "a001" without quotes
+            </Form.Text>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="name">name</Form.Label> {formik.touched.name && formik.errors.name ? (
+                        <small className='error'>{formik.errors.name}</small>
+                    ) : null}
+                    <Form.Control type="text"
+                        id="name"
+                        name="name"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.name}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="solved">challenges solved</Form.Label> {formik.touched.solved && formik.errors.solved ? (
+                        <small className='error'>{formik.errors.solved}</small>
+                    ) : null}
+                    <Form.Control type="text"
+                        id="solved"
+                        name="solved"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.solved}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="id">id</Form.Label> {formik.touched.id && formik.errors.id ? (
+                        <small className='error'>{formik.errors.id}</small>
+                    ) : null}
+                    <Form.Control type="text"
+                        id="id"
+                        name="id"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.id}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="passcode">passcode</Form.Label> {formik.touched.passcode && formik.errors.passcode ? (
+                        <small className='error'>{formik.errors.passcode}</small>
+                    ) : null}
+                    <Form.Control type="text"
+                        id="passcode"
+                        name="passcode"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.passcode}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="expertise">expertise</Form.Label> {formik.touched.expertise && formik.errors.expertise ? (
+                        <small className='error'>{formik.errors.expertise}</small>
+                    ) : null}
+                    <Form.Control as="select"
+                        id="expertise"
+                        name="expertise"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.expertise}
+                    >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="algorithms">algorithms</Form.Label> {formik.touched.algorithms && formik.errors.algorithms ? (
+                        <small className='error'>{formik.errors.algorithms}</small>
+                    ) : null}
+                    <Form.Control as="select"
+                        id="algorithms"
+                        name="algorithms"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.algorithms}
+                    >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="python">python</Form.Label> {formik.touched.python && formik.errors.python ? (
+                        <small className='error'>{formik.errors.python}</small>
+                    ) : null}
+                    <Form.Control as="select"
+                        id="python"
+                        name="python"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.python}
+                    >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </Form.Control>
+                </Form.Group>
+                <Button type="submit">Add</Button>
+            </Form >
+        </Container>
     )
 }
 
