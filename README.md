@@ -2,6 +2,13 @@
 
 Demo Admin Code: a001
 
+## Installation
+
+- clone the repo
+- cd into project directory
+- `npm i`
+- `npm start`
+
 ## Feauters
 
 - google login
